@@ -3,6 +3,7 @@ package cg.natiz.memo;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
 
 public class Executor {
 
@@ -25,7 +26,7 @@ public class Executor {
 		            e.printStackTrace();
 		        }
 
-		        System.out.println("Waiter Released");
+		        System.out.println(Thread.currentThread().getName() + ": Waiter Released");
 		    }
 		}).start();
 		
@@ -54,15 +55,14 @@ public class Executor {
 			e.printStackTrace();
 		}
 	
-		
 		Runnable barrier1Action = new Runnable() {
 		    public void run() {
-		        System.out.println("BarrierAction 1 executed ");
+		        System.out.println(Thread.currentThread().getName() + ": BarrierAction 1 executed ");
 		    }
 		};
 		Runnable barrier2Action = new Runnable() {
 		    public void run() {
-		        System.out.println("BarrierAction 2 executed ");
+		        System.out.println(Thread.currentThread().getName() + ": BarrierAction 2 executed ");
 		    }
 		};
 
@@ -74,7 +74,7 @@ public class Executor {
 		        try {
 		            Thread.sleep(1000);
 		            System.out.println(Thread.currentThread().getName() +
-		                                " waiting at barrier 1");
+		                                ": waiting at barrier 1");
 		            barrier1.await();
 
 		            Thread.sleep(1000);
@@ -83,7 +83,7 @@ public class Executor {
 		            barrier2.await();
 
 		            System.out.println(Thread.currentThread().getName() +
-		                                " done!");
+		                                ": done!");
 
 		        } catch (InterruptedException e) {
 		            e.printStackTrace();
@@ -98,16 +98,16 @@ public class Executor {
 		        try {
 		            Thread.sleep(1000);
 		            System.out.println(Thread.currentThread().getName() +
-		                                " waiting at barrier 1");
+		                                ": waiting at barrier 1");
 		            barrier1.await();
 
 		            Thread.sleep(1000);
 		            System.out.println(Thread.currentThread().getName() +
-		                                " waiting at barrier 2");
+		                                ": waiting at barrier 2");
 		            barrier2.await();
 
 		            System.out.println(Thread.currentThread().getName() +
-		                                " done!");
+		                                ": done!");
 
 		        } catch (InterruptedException e) {
 		            e.printStackTrace();

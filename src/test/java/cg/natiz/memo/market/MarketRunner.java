@@ -15,8 +15,6 @@ import javax.inject.Inject;
 import org.jboss.weld.environment.se.bindings.Parameters;
 import org.jboss.weld.environment.se.events.ContainerInitialized;
 
-import cg.natiz.memo.market.Purchaser;
-import cg.natiz.memo.market.Seller;
 
 public class MarketRunner {
 

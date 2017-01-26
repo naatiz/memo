@@ -11,9 +11,6 @@ import org.jboss.weld.environment.se.bindings.Parameters;
 import org.jboss.weld.environment.se.events.ContainerInitialized;
 
 import cg.natiz.memo.Config;
-import cg.natiz.memo.prognosis.Event;
-import cg.natiz.memo.prognosis.Generator;
-import cg.natiz.memo.prognosis.Type;
 
 public class PrognosisRunnerLoto {
 
